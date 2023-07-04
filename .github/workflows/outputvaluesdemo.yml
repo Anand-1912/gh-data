@@ -1,5 +1,18 @@
 name: output_values_demo
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Target environment"
+        default: "all"
+        required: true
+        type: choice
+        options:
+          - all
+          - dev
+          - sys
+          - uat
+          - prod
 jobs:
   job1:
     runs-on: ubuntu-latest
